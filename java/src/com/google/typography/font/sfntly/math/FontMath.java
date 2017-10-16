@@ -21,19 +21,11 @@ package com.google.typography.font.sfntly.math;
  * 
  * @author Stuart Gill
  */
-public final class FontMath {
-  private FontMath() {
-    // Prevent construction.
-  }
+public enum FontMath {
+  ;
 
   public static int log2(int a) {
-    int r = 0; // r will be lg(a)
-
-    while (a != 0) {
-      a >>= 1;
-      r++;
-    }
-    return r - 1;
+    return 31 - Integer.numberOfLeadingZeros(a);
   }
 
   /**
